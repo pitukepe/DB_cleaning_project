@@ -60,6 +60,7 @@ sales.index = pd.RangeIndex(start=1, stop=len(sales)+1, step=1)
 #sales.to_csv("ds_salaries_cleaned.csv", index=False)
 
 
+## Creating a test DataFrame
 data = {
     'data' : [1, 1, 1, 1, 1, 1, 4, 6]
 }
