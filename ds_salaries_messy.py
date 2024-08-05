@@ -56,18 +56,16 @@ sales['company_location'] = sales['company_location'].apply(lambda iso2: pycount
 ## Changing indexing from start0 to start1
 sales.index = pd.RangeIndex(start=1, stop=len(sales)+1, step=1)
 
-##saving the cleaned data to a new file
+##saving the cleaned data to a new csv file
 #sales.to_csv("ds_salaries_cleaned.csv", index=False)
+
+##saving the cleaned data to a new excel file (openpyxl module needed)
+#sales.to_excel("de_salaries_cleaned_excel.xlsx", index=False)
 
 
 ## Creating a test DataFrame
 data = {
     'data' : [1, 1, 1, 1, 1, 1, 4, 6]
 }
-
 test = pd.DataFrame(data)
-print(test.describe())
 
-test['data'].plot(kind='box', figsize=(10,4), vert=False)
-plt.axvline(test['data'].mean(), color="red", ls="--")
-plt.show()
