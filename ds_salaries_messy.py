@@ -49,9 +49,13 @@ sales["company_size"] = sales["company_size"].map(comsize_map)
 sales["remote_ratio"] = sales["remote_ratio"].map(remrat_map)
 sales["employment_type"] = sales['employment_type'].map(emptyp_map)
 
-##iso2 to iso3
+##iso2 to iso3 (we can change '.alpha_3' to '.name' for the full name of the country)
 sales['employee_residence'] = sales['employee_residence'].apply(lambda iso2: pycountry.countries.get(alpha_2=iso2).alpha_3)
 sales['company_location'] = sales['company_location'].apply(lambda iso2: pycountry.countries.get(alpha_2=iso2).alpha_3)
+
+##iso3 to full name for the currency abbreviations
+sales['salary_currency'] = sales['salary_currency'].apply(lambda iso3: pycountry.currencies.get(alpha_3=iso3).name)
+
 
 ## Changing indexing from start0 to start1
 sales.index = pd.RangeIndex(start=1, stop=len(sales)+1, step=1)
@@ -68,4 +72,3 @@ data = {
     'data' : [1, 1, 1, 1, 1, 1, 4, 6]
 }
 test = pd.DataFrame(data)
-
