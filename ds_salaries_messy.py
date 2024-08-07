@@ -57,7 +57,7 @@ sales['company_location'] = sales['company_location'].apply(lambda iso2: pycount
 sales['salary_currency'] = sales['salary_currency'].apply(lambda iso3: pycountry.currencies.get(alpha_3=iso3).name)
 
 
-## Changing indexing from start0 to start1
+## Changing indexing from start=0 to start=1
 sales.index = pd.RangeIndex(start=1, stop=len(sales)+1, step=1)
 
 ##saving the cleaned data to a new csv file
@@ -66,9 +66,3 @@ sales.index = pd.RangeIndex(start=1, stop=len(sales)+1, step=1)
 ##saving the cleaned data to a new excel file (openpyxl module needed)
 #sales.to_excel("de_salaries_cleaned_excel.xlsx", index=False)
 
-
-## Creating a test DataFrame
-data = {
-    'data' : [1, 1, 1, 1, 1, 1, 4, 6]
-}
-test = pd.DataFrame(data)
