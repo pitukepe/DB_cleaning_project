@@ -44,7 +44,7 @@ The database may contain various issues such as missing values, inconsistencies,
 
 **Clone the repository:**
 ```bash
-git clone https://github.com/yourusername/salary-database-cleaning.git
+git clone https://github.com/pitukepe/DB_cleaning_project.git
 ```
 **Install the required packages:**
 ```bash
