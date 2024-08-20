@@ -59,6 +59,6 @@ Example:
 python3 ds_salaries_messy.py
 ```
 
-## Contributing
+## Contributing
 
 Contributions are welcome! Feel free to submit a pull request or open an issue if you find a bug or have a suggestion.
