@@ -1,6 +1,6 @@
 # Salary Database Cleaning
 
-This repository is dedicated to learning to `clean` and `preprocessing` a kaggle salary database.
+This repository is dedicated to learning to `clean` and `preprocessing` a [kaggle salaries database](https://www.kaggle.com/datasets/arnabchaki/data-science-salaries-2023).
 The project involves applying various data cleaning techniques to ensure the data is accurate, consistent, and ready for analysis.
 
 ## Table of Contents
@@ -14,7 +14,7 @@ The project involves applying various data cleaning techniques to ensure the dat
 
 ## Introduction
 
-The main objective of this project is to practice and improve data cleaning skills using a kaggle salary database.
+The main objective of this project is to practice and improve data cleaning skills using a [kaggle salaries database](https://www.kaggle.com/datasets/arnabchaki/data-science-salaries-2023).
 The database may contain various issues such as missing values, inconsistencies, and errors that need to be addressed.
 
 ## Project Structure
