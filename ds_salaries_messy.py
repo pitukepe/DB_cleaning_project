@@ -10,7 +10,7 @@ sales.reset_index(inplace=True, drop=True)
 
 ##finding NaN's and then rmving NaN's
 nulls = [(index, col) for index, row in sales.iterrows() for col in sales.columns if pd.isnull(row[col])]
-sales.drop([index[0] for index in nulls], inplace=True)
+sales.drop([i[0] for i in nulls], inplace=True)
 sales.reset_index(inplace=True, drop=True)
 
 ##finding and repairing messy values
@@ -18,7 +18,7 @@ sales["salary"] = pd.to_numeric(sales["salary"], errors='coerce')
 sales["remote_ratio"] = pd.to_numeric(sales["remote_ratio"], errors='coerce')
 sales["company_size"] = sales["company_size"].apply(lambda x: x if isinstance(x,str) and not x.replace(".","").isdigit() else None)
 ##dropping again (with a different way), since we coerced messy values
-sales.drop(sales.loc[sales.isnull().any(axis=1)].index, inplace=True)
+sales.dropna(how='any', inplace=True)
 sales.reset_index(inplace=True, drop=True)
 
 ##remapping values for improved readability
@@ -64,5 +64,13 @@ sales.index = pd.RangeIndex(start=1, stop=len(sales)+1, step=1)
 #sales.to_csv("ds_salaries_cleaned.csv", index=False)
 
 ##saving the cleaned data to a new excel file (openpyxl module needed)
-#sales.to_excel("de_salaries_cleaned_excel.xlsx", index=False)
+#sales.to_excel("ds_salaries_cleaned_excel.xlsx", index=False)
 
+
+data = pd.DataFrame({'month':['january', 'february', 'march','april','may'], 'salesman':['mark', 'jan', 'pete', 'michael','alex'],'sales':[1234,415,453,3,12], 'profit':[123,41,45,3,12], 'expenses':[12,4,4,3,1]})
+melted = data.melt(id_vars=['month','salesman'], var_name='type', value_name='num')
+
+crosstab = pd.crosstab(data['month'], data['sales'].diff() > 0, colnames=['higher than previous month'], rownames=['months'])
+
+
+print(crosstab)
