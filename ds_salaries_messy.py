@@ -60,17 +60,15 @@ sales['salary_currency'] = sales['salary_currency'].apply(lambda iso3: pycountry
 ## Changing indexing from start=0 to start=1
 sales.index = pd.RangeIndex(start=1, stop=len(sales)+1, step=1)
 
-##saving the cleaned data to a new csv file
+## Saving the cleaned data to a new csv file
 #sales.to_csv("ds_salaries_cleaned.csv", index=False)
 
-##saving the cleaned data to a new excel file (openpyxl module needed)
+## Saving the cleaned data to a new excel file (openpyxl module needed)
 #sales.to_excel("ds_salaries_cleaned_excel.xlsx", index=False)
 
 
-data = pd.DataFrame({'month':['january', 'february', 'march','april','may'], 'salesman':['mark', 'jan', 'pete', 'michael','alex'],'sales':[1234,415,453,3,12], 'profit':[123,41,45,3,12], 'expenses':[12,4,4,3,1]})
-melted = data.melt(id_vars=['month','salesman'], var_name='type', value_name='num')
-
-crosstab = pd.crosstab(data['month'], data['sales'].diff() > 0, colnames=['higher than previous month'], rownames=['months'])
-
-
-print(crosstab)
+## Test code for learning .melt and .crosstab functions
+#data = pd.DataFrame({'month':['january', 'february', 'march','april','may'], 'salesman':['mark', 'jan', 'pete', 'michael','alex'],'sales':[1234,415,453,3,12], 'profit':[123,41,45,3,12], 'expenses':[12,4,4,3,1]})
+#melted = data.melt(id_vars=['month','salesman'], var_name='type', value_name='num')
+#crosstab = pd.crosstab(data['month'], data['sales'].diff() > 0, colnames=['higher than previous month'], rownames=['months'])
+#print(crosstab)
